@@ -5,7 +5,7 @@ on:
     branches: [ dev-master ]
 
 jobs:
-  build-reakt-project:
+  build-krypto:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +23,6 @@ jobs:
       - name: Making gradlew executable
         run: chmod +x ./gradlew
         working-directory: .
-      - name: Building reakt
+      - name: Building krypto
         run: ./gradlew build
         working-directory: .

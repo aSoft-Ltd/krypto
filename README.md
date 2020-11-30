@@ -1,14 +1,12 @@
-# aSoft Reakt
+# Krypto
 ![badge][badge-maven] ![badge][badge-mpp] ![badge][badge-android] ![badge][badge-js] ![badge][badge-jvm]
 
-This is an opinionated kotlin first react ui toolkit with multiple components
-
-Documentation is still being prepared
+Everything is copied from [korlibs-krypto](https://github.com/korlibs/krypto), consider supporting there
 
 ## Setup:Gradle
 ```kotlin
 dependencies {
-    implementation("tz.co.asoft:reakt-[module]:+") // please use the latest version possible
+    implementation("tz.co.asoft:krypto-core:+") // please use the latest version possible
 }
 ```
 

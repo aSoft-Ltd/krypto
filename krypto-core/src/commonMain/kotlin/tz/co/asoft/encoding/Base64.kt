@@ -35,10 +35,10 @@ object Base64 {
                 continue // skip character
             }
 
-            val b0 = DECODE[src.readU8(n++)]
-            val b1 = DECODE[src.readU8(n++)]
-            val b2 = DECODE[src.readU8(n++)]
-            val b3 = DECODE[src.readU8(n++)]
+            val b0 = if (n < src.size) DECODE[src.readU8(n++)] else 64
+            val b1 = if (n < src.size) DECODE[src.readU8(n++)] else 64
+            val b2 = if (n < src.size) DECODE[src.readU8(n++)] else 64
+            val b3 = if (n < src.size) DECODE[src.readU8(n++)] else 64
             dst[m++] = (b0 shl 2 or (b1 shr 4)).toByte()
             if (b2 < 64) {
                 dst[m++] = (b1 shl 4 or (b2 shr 2)).toByte()
@@ -85,9 +85,10 @@ object Base64 {
     private fun ByteArray.readU8(index: Int): Int = this[index].toInt() and 0xFF
     private fun ByteArray.readU24BE(index: Int): Int =
         (readU8(index + 0) shl 16) or (readU8(index + 1) shl 8) or (readU8(index + 2) shl 0)
-
 }
 
+fun String.fromBase64IgnoreSpaces(): ByteArray = Base64.decode(this.replace(" ", "").replace("\n", "").replace("\r", ""))
 fun String.fromBase64(ignoreSpaces: Boolean = false): ByteArray = if (ignoreSpaces) Base64.decodeIgnoringSpaces(this) else Base64.decode(this)
+fun ByteArray.toBase64(): String = Base64.encode(this)
 val ByteArray.base64: String get() = Base64.encode(this)
 val ByteArray.base64Url: String get() = base64.replace("=", "").replace("/", "_")
