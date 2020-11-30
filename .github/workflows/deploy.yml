@@ -33,5 +33,5 @@ jobs:
         run: ./gradlew :krypto-core:publish
         working-directory: .
       - name: Closing and Releasing Repositories
-        run: ./gradlew :reakt-navigation:closeAndReleaseRepository
+        run: ./gradlew :krypto-core:closeAndReleaseRepository
         working-directory: .
