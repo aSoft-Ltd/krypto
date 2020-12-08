@@ -29,9 +29,12 @@ jobs:
       - name: Making gradlew executable
         run: chmod +x ./gradlew
         working-directory: .
-      - name: Publishing krypto
+      - name: Publishing krypto-core
         run: ./gradlew :krypto-core:publish
         working-directory: .
+      - name: Publishing krypto-keys
+        run: ./gradlew :krypto-keys:publish
+        working-directory: .
       - name: Closing and Releasing Repositories
-        run: ./gradlew :reakt-navigation:closeAndReleaseRepository
+        run: ./gradlew :krypto-core:closeAndReleaseRepository
         working-directory: .

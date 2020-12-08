@@ -18,3 +18,4 @@ pluginManagement {
 rootProject.name = "krypto"
 
 include(":krypto-core")
+include(":krypto-keys")
