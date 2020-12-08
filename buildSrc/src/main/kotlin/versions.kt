@@ -5,7 +5,7 @@ object vers {
     val mongo = "3.12.7"
 
     object asoft {
-        val krypto = "0.0.2"
+        val krypto = "0.0.3"
         val test = "1.0.1"
         val builders = "1.1.1"
     }

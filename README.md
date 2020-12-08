@@ -7,6 +7,7 @@ Everything is copied from [korlibs-krypto](https://github.com/korlibs/krypto), c
 ```kotlin
 dependencies {
     implementation("tz.co.asoft:krypto-core:+") // please use the latest version possible
+    implementation("tz.co.asoft:krypto-keys:+") // please use the latest version possible
 }
 ```
 
