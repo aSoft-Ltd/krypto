@@ -19,5 +19,5 @@ kotlin {
 
 aSoftLibrary(
     version = vers.asoft.krypto,
-    description = "A react wrapper tool library for kotlin-react"
+    description = "A multiplatform library for cyrptography"
 )
