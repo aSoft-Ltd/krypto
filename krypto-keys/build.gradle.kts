@@ -8,7 +8,7 @@ plugins {
 }
 
 repositories {
-    maven(url = "https://kotlin.bintray.com/kotlinx/") // soon will be just jcenter()
+    maven(url = "https://kotlin.bintray.com/kotlinx/")
 }
 
 kotlin {
@@ -29,3 +29,8 @@ kotlin {
         }
     }
 }
+
+aSoftLibrary(
+    version = vers.asoft.krypto,
+    description = "A platform agnostic implementation of security keys"
+)
