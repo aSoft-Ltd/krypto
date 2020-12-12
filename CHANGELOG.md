@@ -1,3 +1,7 @@
+# 0.0.3 : 2020.12.08
+## Bug fixes
+- Added missing library configuration
+
 # 0.0.2 : 2020.12.08
 ## New Features
 - Added krypto-keys

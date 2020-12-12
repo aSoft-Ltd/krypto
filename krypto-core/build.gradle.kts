@@ -9,7 +9,7 @@ plugins {
 kotlin {
     universalLib()
     sourceSets {
-        val commonMain by getting {
+        val commonTest by getting {
             dependencies {
                 api(asoft("test", vers.asoft.test))
             }
