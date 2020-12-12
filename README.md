@@ -1,7 +1,7 @@
 # Krypto
 ![badge][badge-maven] ![badge][badge-mpp] ![badge][badge-android] ![badge][badge-js] ![badge][badge-jvm]
 
-Everything is copied from [korlibs-krypto](https://github.com/korlibs/krypto), consider supporting there
+90% of this code is copied from [korlibs-krypto](https://github.com/korlibs/krypto), consider supporting there
 
 ## Setup:Gradle
 ```kotlin
