@@ -1,5 +1,4 @@
 plugins {
-    id("com.android.library")
     kotlin("multiplatform")
     kotlin("plugin.serialization")
     id("tz.co.asoft.library")
@@ -7,12 +6,25 @@ plugins {
     signing
 }
 
-repositories {
-    maven(url = "https://kotlin.bintray.com/kotlinx/")
-}
-
 kotlin {
-    universalLib()
+    jvm { library() }
+    js(IR) { library() }
+    val darwinTargets = listOf(
+        macosX64(),
+        iosArm32(),
+        iosX64(),
+        iosArm64(),
+        watchosArm64(),
+        watchosArm32(),
+        watchosX86(),
+        tvosArm64(),
+        tvosX64()
+    )
+
+    val linuxTargets = listOf(
+        linuxX64()
+    )
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -24,13 +36,13 @@ kotlin {
 
         val commonTest by getting {
             dependencies {
-                api(asoft("test", vers.asoft.test))
+                implementation(asoft("test-core", vers.asoft.test))
             }
         }
     }
 }
 
-aSoftLibrary(
+aSoftOSSLibrary(
     version = vers.asoft.krypto,
     description = "A platform agnostic implementation of security keys"
 )

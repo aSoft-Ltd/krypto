@@ -1,4 +1,4 @@
-package tz.co.asoft
+package krypto
 
 import java.security.KeyPair
 import java.security.PrivateKey

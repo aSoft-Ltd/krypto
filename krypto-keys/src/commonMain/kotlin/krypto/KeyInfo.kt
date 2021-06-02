@@ -1,4 +1,4 @@
-package tz.co.asoft
+package krypto
 
 interface KeyInfo {
     var uid: String?

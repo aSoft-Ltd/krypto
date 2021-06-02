@@ -1,4 +1,4 @@
-package tz.co.asoft
+package krypto
 
 import java.security.KeyPairGenerator
 import java.security.SecureRandom

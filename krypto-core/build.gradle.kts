@@ -26,19 +26,12 @@ kotlin {
         linuxX64()
     )
 
-    val windowsTargets = listOf(
-        mingwX64()
-    )
-
     sourceSets {
-
-        val commonMain by getting {
-
-        }
+        val commonMain by getting
 
         val commonTest by getting {
             dependencies {
-                api(kotlin("test"))
+                implementation(kotlin("test"))
             }
         }
 
