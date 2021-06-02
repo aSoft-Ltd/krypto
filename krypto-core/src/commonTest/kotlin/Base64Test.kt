@@ -1,15 +1,42 @@
-import tz.co.asoft.Base64
-import tz.co.asoft.ascii
-import tz.co.asoft.toByteArray
+import krypto.encoding.Base64
+import krypto.encoding.fromBase64
+import krypto.encoding.toBase64
 import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class Base64Test {
     @Test
-    fun `should_convert_json_to_base64`() {
-        val json = """{ "uid": 4 }"""
-        val base64 = Base64.encode(json.toByteArray())
-        println(base64)
-        val js = Base64.decode(base64).ascii
-        println(js)
+    fun name() {
+        assertEquals("AQID", Base64.encode(byteArrayOf(1, 2, 3)))
+        assertEquals("aGVsbG8=", Base64.encode("hello".encodeToByteArray()))
+        assertEquals(byteArrayOf(1, 2, 3).toList(), Base64.decode("AQID").toList())
+        assertEquals("hello", Base64.decode("aGVsbG8=").decodeToString())
+    }
+
+    @Test
+    fun testSeveral() {
+        for (item in listOf("", "a", "aa", "aaa", "aaaa", "aaaaa", "Hello World!")) {
+            assertEquals(item, item.encodeToByteArray().toBase64().fromBase64().decodeToString())
+        }
+    }
+
+    @Test
+    fun testGlobal() {
+        assertEquals("hello", globalBase64)
+        assertEquals("hello", ObjectBase64.globalBase64)
+    }
+
+    @Test
+    fun testIssue64DecodeWithMissingPadding() {
+        assertEquals(
+            "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ==",
+            Base64.encode(Base64.decode("eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"))
+        )
     }
 }
+
+object ObjectBase64 {
+    val globalBase64 = "aGVsbG8=".fromBase64().decodeToString()
+}
+
+val globalBase64 = "aGVsbG8=".fromBase64().decodeToString()
